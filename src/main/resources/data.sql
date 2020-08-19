@@ -1,0 +1,1 @@
+INSERT into DOMAIN_TRACK_TABLE(ID,DOMAIN_NAME,HIT_COUNT) values (1,'www.mint.com',1),(2,'www.ck.com',5);
