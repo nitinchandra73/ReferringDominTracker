@@ -24,8 +24,8 @@ import com.nitin.java.referring.domain.tracker.service.TrackDomainService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RestController
 @Slf4j
+@RestController
 public class TrackDomainControllerImpl implements TrackDomainController {
 
 	@Autowired
@@ -34,7 +34,7 @@ public class TrackDomainControllerImpl implements TrackDomainController {
 	
 	@GetMapping(value = TRACK_DOMAIN)
 	@Override
-	public ResponseEntity<?> trackDomain(HttpServletRequest request)  {
+	public ResponseEntity<Void> trackDomain(HttpServletRequest request)  {
 		
 		String uri = request.getRequestURI().toString();
 		log.debug("Handling track domain request for uri: "+uri);
