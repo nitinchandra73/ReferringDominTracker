@@ -34,24 +34,24 @@ public class TrackDomainServiceImpl implements TrackDomainService {
 	private TrackDomainRepository repository;
 
 	@Override
-	public void trackDomain(String uri) {
+	public void trackDomain(String domainName) {
 
-		final String domainMatch = matchPatern(uri);
+//		final String domainName = matchPatern(uri);
 
-		DomainTrackTable domainEntry = repository.findByDomainName(domainMatch);
+		DomainTrackTable domainEntry = repository.findByDomainName(domainName);
 		if (domainEntry != null) {
 			if (domainEntry.isActive) {
 				domainEntry.hitCount++;
 			} else {
-				log.error(String.format(Constants.DOMAIN_IS_INACTIVE, domainMatch),ErrorCodes.DOMAIN_IS_INACTIVE);
-				throw new UserException(String.format(Constants.DOMAIN_IS_INACTIVE, domainMatch),
+				log.error(String.format(Constants.DOMAIN_IS_INACTIVE, domainName),ErrorCodes.DOMAIN_IS_INACTIVE);
+				throw new UserException(String.format(Constants.DOMAIN_IS_INACTIVE, domainName),
 						ErrorCodes.DOMAIN_IS_INACTIVE);
 			}
 
 		} else {
-			log.error(String.format(Constants.DOMAIN_DOES_NOT_EXIST, domainMatch),
+			log.error(String.format(Constants.DOMAIN_DOES_NOT_EXIST, domainName),
 					ErrorCodes.DOMAIN_DOES_NOT_EXIST);
-			throw new UserException(String.format(Constants.DOMAIN_DOES_NOT_EXIST, domainMatch),
+			throw new UserException(String.format(Constants.DOMAIN_DOES_NOT_EXIST, domainName),
 					ErrorCodes.DOMAIN_DOES_NOT_EXIST);
 		}
 

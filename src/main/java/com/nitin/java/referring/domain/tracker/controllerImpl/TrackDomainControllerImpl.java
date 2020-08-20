@@ -34,12 +34,12 @@ public class TrackDomainControllerImpl implements TrackDomainController {
 	
 	@GetMapping(value = TRACK_DOMAIN)
 	@Override
-	public ResponseEntity<Void> trackDomain(HttpServletRequest request)  {
+	public ResponseEntity<Void> trackDomain(@PathVariable(Constants.DOMAIN_NAME) String domainName)  {
 		
-		String uri = request.getRequestURI().toString();
-		log.debug("Handling track domain request for uri: "+uri);
-		service.trackDomain(uri);
-		log.info("Served track domain request for uri: "+uri);
+//		String uri = request.getRequestURI().toString();
+		log.debug("Handling track domain request for: "+domainName);
+		service.trackDomain(domainName);
+		log.info("Served track domain request for uri: "+domainName);
 		return ResponseEntity.ok().build(); 
 	}
 	

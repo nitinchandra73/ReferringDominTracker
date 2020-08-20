@@ -67,7 +67,7 @@ public class TrackDomainControllerIT {
                 HttpMethod.GET, new HttpEntity<String>("DUMMY_DOESNT_MATTER",
                         headers), Void.class);
 
-        Assert.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         
     }
     
@@ -79,7 +79,7 @@ public class TrackDomainControllerIT {
                 createUrl("/trackDomain"),
                 HttpMethod.GET, null, Void.class);
 
-        Assert.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         
     }
     
