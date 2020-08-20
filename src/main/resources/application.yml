@@ -1,16 +1,13 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;
+    url: 'jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;'
     platform: h2
     username: GUEST
     password: abc
     driverClassName: org.h2.Driver
-    hikari:
-       minimumIdle :2
-       maximumPoolSize:20
-       idleTimeout:30000
-       maxLifetime:2000000
-       connectionTimeout:30000
+    hikari: >-
+      minimumIdle :2 maximumPoolSize:20 idleTimeout:30000 maxLifetime:2000000
+      connectionTimeout:30000
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
@@ -27,10 +24,5 @@ spring:
       settings:
         trace: false
         web-allow-others: false
-logging:
-    path: logs
-    file: ./${logging.path}/ReferringDomain.log
-    level:
-        root: info
-    patern:
-        file: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger.%M - %msg%n"
+  
+    

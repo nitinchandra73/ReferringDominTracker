@@ -14,8 +14,10 @@ public interface TrackDomainController {
 
 	
 
-	public ResponseEntity<?> getTrackDomain(HttpServletRequest request) throws UserException;
+	public ResponseEntity<?> trackDomain(HttpServletRequest request) throws UserException;
 
 	public ResponseEntity<List<Domain>> rankReferringDomain(Optional<Integer> size);
+
+	public ResponseEntity<Void> registerDomain(String domainName);
 	
 }

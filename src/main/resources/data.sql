@@ -1,1 +1,16 @@
-INSERT into DOMAIN_TRACK_TABLE(ID,DOMAIN_NAME,HIT_COUNT) values (1,'www.mint.com',1),(2,'www.ck.com',5);
+INSERT into DOMAIN_TRACK_TABLE(ID,DOMAIN_NAME,HIT_COUNT,IS_ACTIVE) values 
+(1,'www.mint.com',1,TRUE)
+,(2,'www.ck.com',5,TRUE)
+,(3,'www.fb.com',8,TRUE)
+,(4,'www.chase.com',8,TRUE)
+,(5,'www.boa.com',6,TRUE)
+,(6,'www.amex.com',12,FALSE)
+,(7,'www.qbo.com',3,TRUE)
+,(8,'www.proseries.com',32,TRUE)
+,(9,'www.irs.com',342,TRUE)
+,(10,'www.google.com',223,TRUE)
+,(11,'www.amazon.com',31,TRUE)
+,(12,'www.apple.com',933,FALSE)
+,(13,'www.forbes.com',31,FALSE)
+,(14,'www.fidelity.com',13,TRUE)
+,(15,'www.robinhood.com',48,TRUE);

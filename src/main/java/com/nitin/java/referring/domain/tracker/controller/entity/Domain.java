@@ -2,6 +2,7 @@ package com.nitin.java.referring.domain.tracker.controller.entity;
 
 import javax.validation.constraints.NotBlank;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,20 +14,16 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Builder
+@AllArgsConstructor
 public class Domain {
 
 	public Integer id;
 	@NotBlank(message = "Domain name may not be blank")
 	public String domainName;
 	public Integer hitCount;
+	public Boolean isActive;
 	
-	public Domain(Integer id, String domainName, Integer hitCount) {
-		super();
-		this.id = id;
-		
-		this.domainName = domainName;
-		this.hitCount = hitCount;
-	}
+	
 	
 	
 	

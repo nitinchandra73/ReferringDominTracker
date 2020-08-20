@@ -12,4 +12,6 @@ public interface TrackDomainService {
 
 	public List<Domain> rankDomain(Optional<Integer> size);
 
+	public void addDomain(String domainName);
+
 }

@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,25 +16,29 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class DomainTrackTable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer id;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique=true)
 	public String domainName;
 	
 	public int hitCount;
+	
+	@Column(nullable = false)
+	public boolean isActive;
 
 	
 	
-	public DomainTrackTable(Integer id, String domainName, int hitCount) {
-		super();
-		this.id = id;
-		this.domainName = domainName;
-		this.hitCount = hitCount;
-	}
+	
+
+
+
+	
 	
 	
 }
