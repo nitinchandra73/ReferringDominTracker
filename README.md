@@ -3,8 +3,8 @@
 - Referring domains are websites from which the target website or web page has one or more backlinks. 
 ## Application's responsibility
 - Add new domain
-- Track reffering domain hits
-- Rank reffering domains based on number of hits
+- Track referring domain hits
+- Rank referring domains based on number of hits
 ## Technical stack
 - REST API
 - Spring boot
@@ -18,7 +18,7 @@
 ## Important hooks 
 - Maven - [pom.xml](pom.xml)
 - Application properties - [application.yml](src/main/resources/application.yml)
-- Runnable Spring Boot Application - [RefferingDomainTracker](src/main/java/com/nitin/java/referring/domain/tracker/Application.java)
+- Runnable Spring Boot Application - [ReferringDomainTracker](src/main/java/com/nitin/java/referring/domain/tracker/Application.java)
 - REST endpoints - [RequestMappings.java](src/main/java/com/nitin/java/referring/domain/tracker/controller/requestMappings/RequestMappings.java)
 - Log configuration [logback.xml](src/main/resources/logback.xml)
 -  [Unit and Integration Tests](src/test/java/com/nitin/java/referring/domain/tracker/)
