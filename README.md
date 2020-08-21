@@ -1,15 +1,19 @@
 # Referring Domin Tracker MicroService
 ## Referring domain defination
 - Referring domains are websites from which the target website or web page has one or more backlinks. 
+## Application's responsibility
+- Add new domain
+- Track reffering domain hits
+- Rank reffering domains based on number of hits
 ## Technical stack
 - REST API
-- Maven
 - Spring boot
-- Spring Data
+- Maven
 - Tomcat
+- Spring Data
 - H2 Database
-- Postman
 - Swagger
+- Postman
 --------
 ## Important hooks 
 - Maven - [pom.xml](pom.xml)
