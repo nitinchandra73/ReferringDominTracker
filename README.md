@@ -1,5 +1,5 @@
 # Referring Domin Tracker MicroService
-## Referring domain defination:- 
+## Referring domain defination
 - Referring domains are websites from which the target website or web page has one or more backlinks. 
 ## Technical stack
 - REST API
@@ -11,11 +11,13 @@
 - Postman
 - Swagger
 --------
-## Important hooks :-
+## Important hooks 
 - Maven - [pom.xml](pom.xml)
 - Application properties - [application.yml](src/main/resources/application.yml)
 - Runnable Spring Boot Application - [RefferingDomainTracker](src/main/java/com/nitin/java/referring/domain/tracker/Application.java)
 - REST endpoints - [RequestMappings.java](src/main/java/com/nitin/java/referring/domain/tracker/controller/requestMappings/RequestMappings.java)
+- Log configuration [logback.xml](src/main/resources/logback.xml)
+-  [Unit and Integration Tests](src/test/java/com/nitin/java/referring/domain/tracker/)
 --------
 ## Swagger
 
@@ -90,3 +92,6 @@
 ] 
 ```
   
+--------
+## Repository beans package
+- [Spring Data](/src/main/java/com/nitin/java/referring/domain/tracker/repository/TrackDomainRepository.java)
