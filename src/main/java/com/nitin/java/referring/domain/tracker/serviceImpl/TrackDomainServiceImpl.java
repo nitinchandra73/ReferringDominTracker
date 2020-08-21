@@ -40,8 +40,8 @@ public class TrackDomainServiceImpl implements TrackDomainService {
 
 		DomainTrackTable domainEntry = repository.findByDomainNameIgnoreCase(domainName);
 		if (domainEntry != null) {
-			if (domainEntry.isActive) {
-				domainEntry.hitCount++;
+			if (domainEntry.isActive()) {
+				domainEntry.setHitCount(domainEntry.getHitCount()+1);
 			} else {
 				log.error(String.format(Constants.DOMAIN_IS_INACTIVE, domainName),ErrorCodes.DOMAIN_IS_INACTIVE);
 				throw new UserException(String.format(Constants.DOMAIN_IS_INACTIVE, domainName),
@@ -98,23 +98,23 @@ public class TrackDomainServiceImpl implements TrackDomainService {
 
 	}
 
-	private String matchPatern(String uri) {
-		final Pattern pattern = Pattern.compile(DOMAIN_REGEX);
-		final Matcher matcher = pattern.matcher(uri);
-
-		if (matcher.find()) {
-			return matcher.group(2);
-		}
-
-		return StringUtils.EMPTY;
-	}
+//	private String matchPatern(String uri) {
+//		final Pattern pattern = Pattern.compile(DOMAIN_REGEX);
+//		final Matcher matcher = pattern.matcher(uri);
+//
+//		if (matcher.find()) {
+//			return matcher.group(2);
+//		}
+//
+//		return StringUtils.EMPTY;
+//	}
 
 	private Domain domainMapper(DomainTrackTable trackTable) {
 		return Domain.builder()
 				.id(trackTable.getId())
 				.domainName(trackTable.getDomainName())
 				.hitCount(trackTable.getHitCount())
-				.isActive(trackTable.isActive)
+				.isActive(trackTable.isActive())
 				.build();
 	}
 
