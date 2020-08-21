@@ -42,7 +42,7 @@
 - **REST method:-** GET
 - **Response status:-** 
     - 200 (When able to find and track domain)
-    - 400 (WHen domain name is not registered or deactivated
+    - 400 (When domain name is not registered or deactivated)
 
 #### 3. Rank Domain (Default size)
 - **Request URI:-** /rankDomain
