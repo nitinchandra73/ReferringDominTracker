@@ -22,11 +22,12 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.nitin.java.referring.domain.tracker.Application;
+import com.nitin.java.referring.domain.tracker.TestData;
 import com.nitin.java.referring.domain.tracker.controller.entity.Domain;
 
 @SpringBootTest(classes = Application.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class) 
-public class TrackDomainControllerIT {
+public class TrackDomainControllerIT extends TestData  {
 
 	@LocalServerPort
     private int port;
@@ -35,11 +36,7 @@ public class TrackDomainControllerIT {
 	
 	HttpHeaders headers = new HttpHeaders();
 	
-	private Domain irsDomain,googleDomain,robinhoodDomain,proseriesDomain,appleDomain;
-
-	
-	
-    @Before
+	@Before
     public void setupJSONAcceptType() {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     }
@@ -190,7 +187,7 @@ public class TrackDomainControllerIT {
     
     private Domain[] getRankByWhenActive(Integer size) {
     	
-    	String url = (size!=null)? createUrl(RANK_DOMAIN+size):createUrl(RANK_DOMAIN);
+    	String url = (size!=null)? createUrl(RANK_DOMAIN+"/"+size):createUrl(RANK_DOMAIN);
     	ResponseEntity<Domain[]> response = template.exchange(
     			url, HttpMethod.GET, new HttpEntity<String>("DUMMY_DOESNT_MATTER",
                         headers), Domain[].class );
@@ -198,15 +195,6 @@ public class TrackDomainControllerIT {
     	return  response.getBody();
     }
     
-    private void buildAllDomains() {
-    	 irsDomain = Domain.builder().domainName("www.irs.com").hitCount(342).id(9).isActive(true).build();
-    	 googleDomain = Domain.builder().domainName("www.google.com").hitCount(223).id(10).isActive(true).build();
-    	 robinhoodDomain = Domain.builder().domainName("www.robinhood.com").hitCount(48).id(15).isActive(true).build();
-    	 proseriesDomain = Domain.builder().domainName("www.proseries.com").hitCount(32).id(8).isActive(true).build();
-    	 appleDomain = Domain.builder().domainName("www.apple.com").hitCount(933).id(12).isActive(false).build();
-    }
-    
-
     private String createUrl(String uri) {
         return "http://localhost:" + port + uri;
     }

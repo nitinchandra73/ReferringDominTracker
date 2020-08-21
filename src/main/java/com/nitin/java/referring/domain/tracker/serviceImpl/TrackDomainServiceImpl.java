@@ -38,7 +38,7 @@ public class TrackDomainServiceImpl implements TrackDomainService {
 
 //		final String domainName = matchPatern(uri);
 
-		DomainTrackTable domainEntry = repository.findByDomainName(domainName);
+		DomainTrackTable domainEntry = repository.findByDomainNameIgnoreCase(domainName);
 		if (domainEntry != null) {
 			if (domainEntry.isActive) {
 				domainEntry.hitCount++;
@@ -75,9 +75,9 @@ public class TrackDomainServiceImpl implements TrackDomainService {
 	@Override
 	public void addDomain(String domainName) {
 
-		if (!domainName.isEmpty()) {
-			
-			DomainTrackTable tableEntry = repository.findByDomainName(domainName);
+		if (!StringUtils.isBlank(domainName)) {
+			domainName = domainName.trim();
+			DomainTrackTable tableEntry = repository.findByDomainNameIgnoreCase(domainName);
 			if(tableEntry != null) {
 				tableEntry.setActive(true);
 			}

@@ -9,7 +9,7 @@ import com.nitin.java.referring.domain.tracker.repository.entity.DomainTrackTabl
 
 public interface TrackDomainRepository extends JpaRepository<DomainTrackTable, Integer> {
 	
-	public DomainTrackTable findByDomainName(String domainName);
+	public DomainTrackTable findByDomainNameIgnoreCase(String domainName);
 	
 //	public List<DomainTrackTable> findTop3ByOrderByHitCountDesc();
 	
