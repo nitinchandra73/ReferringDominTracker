@@ -1,4 +1,4 @@
-# Referring Domin Tracker MicroService
+# Referring Domain Tracker MicroService
 ## Referring domain defination
 - Referring domains are websites from which the target website or web page has one or more backlinks. 
 ## Application's responsibility
